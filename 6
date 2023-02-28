@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int isArmstrong(int n) {
+    int sum = 0, original = n, count = 0;
+    while(original != 0) {
+        count++;
+        original /= 10;
+    }
+    original = n;
+    while(original != 0) {
+        int digit = original % 10;
+        sum += pow(digit, count);
+        original /= 10;
+    }
+    return sum == n;
+}
+
+int main() {
+    int start, end;
+    printf("Enter the starting and ending numbers: ");
+    scanf("%d %d", &start, &end);
+    printf("Armstrong numbers between %d and %d are:
